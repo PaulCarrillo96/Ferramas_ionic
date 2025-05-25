@@ -1,0 +1,39 @@
+ion-card.banner {
+  background-color: #d9d9d9;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+
+  ion-card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  ion-card-content {
+    color: #555;
+  }
+}
+
+.categoria-card {
+  background-color: #f2f2f2;
+  text-align: center;
+  padding: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+
+  ion-icon {
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #333;
+    font-weight: 500;
+  }
+
+  &:hover {
+    background-color: #ccc;
+  }
+}

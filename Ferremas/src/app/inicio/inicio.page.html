@@ -1,0 +1,34 @@
+<app-header></app-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card class="banner">
+    <ion-card-header>
+      <ion-card-title>¡Bienvenido a Ferremás!</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Encuentra repuestos, herramientas y más para tus proyectos.
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Categorías Destacadas</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" size-sm="6" size-md="4" *ngFor="let cat of categorias">
+            <ion-card class="categoria-card" (click)="irACatalogo()">
+              <ion-icon [name]="cat.icono" size="large"></ion-icon>
+              <p>{{ cat.nombre }}</p>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button expand="block" (click)="irACatalogo()">Ver Catálogo Completo</ion-button>
+</ion-content>
+<app-footer></app-footer>
