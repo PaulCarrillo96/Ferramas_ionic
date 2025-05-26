@@ -3,7 +3,7 @@ import { CarritoService } from '../servicios/carrito.service';
 import { Producto } from '../servicios/productos.service';
 import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-carrito',
@@ -15,11 +15,13 @@ export class CarritoPage implements OnInit {
   carrito: Producto[] = [];
   total = 0;
   cantidad = 0;
+  tipoCambio = 0;
 
-  constructor(private carritoService: CarritoService,private alertCtrl: AlertController,private router: Router) {}
+  constructor(private carritoService: CarritoService,private alertCtrl: AlertController,private router: Router,private http: HttpClient) {}
 
   ngOnInit() {
     this.cargar();
+    this.obtenerDolar();
   }
 
   cargar() {
@@ -27,6 +29,18 @@ export class CarritoPage implements OnInit {
   this.total = this.carritoService.totalCLP();
   this.cantidad = this.carrito.length;
 }
+
+  obtenerDolar() {
+    this.http.get<any>('http://localhost:3000/api/divisas/dolar').subscribe({
+      next: res => this.tipoCambio = res.valor,
+      error: err => console.error('Error al obtener dólar:', err)
+    });
+  }
+
+  totalUSD(): number {
+    return this.tipoCambio > 0 ? this.total / this.tipoCambio : 0;
+  }
+
 
 eliminar(index: number) {
   this.carritoService.eliminar(index);

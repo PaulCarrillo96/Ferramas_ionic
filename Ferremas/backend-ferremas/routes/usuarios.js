@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 const db = require('../db');
 
-// REGISTRO
 router.post('/registro', (req, res) => {
-  const { nombre, correo, clave, rol } = req.body;
+  const { nombre, correo, clave } = req.body;
+
+  const rol = 'usuario'; // 🔒 forzar siempre a usuario
 
   const query = 'INSERT INTO usuarios (nombre, correo, clave, rol) VALUES (?, ?, ?, ?)';
-  db.query(query, [nombre, correo, clave, rol || 'usuario'], (err, result) => {
+  db.query(query, [nombre, correo, clave, rol], (err, result) => {
     if (err) {
       console.error('❌ Error en el registro:', err);
       return res.status(500).json({ error: 'Error al registrar usuario' });

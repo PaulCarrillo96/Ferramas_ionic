@@ -1,27 +1,39 @@
 <app-header></app-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding fade-in">
 
   <ion-card class="banner">
     <ion-card-header>
-      <ion-card-title>¡Bienvenido a Ferremás!</ion-card-title>
+      <ion-card-title class="ion-text-center">
+        <strong>¡Bienvenido a Ferremás!</strong>
+      </ion-card-title>
     </ion-card-header>
-    <ion-card-content>
+    <ion-card-content class="ion-text-center">
       Encuentra repuestos, herramientas y más para tus proyectos.
     </ion-card-content>
   </ion-card>
 
+  <ion-item lines="none" color="light" class="ion-justify-content-center" *ngIf="valorDolar">
+    <ion-label class="ion-text-center">
+      <ion-icon name="cash-outline" color="success"></ion-icon>
+      <strong> Dólar hoy: ${{ valorDolar | number:'1.2-2' }} CLP</strong>
+      <p style="font-size: 12px; color: gray; margin: 4px 0 0;">
+        Valor referencial según Banco Central de Chile
+      </p>
+    </ion-label>
+  </ion-item>
+
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Categorías Destacadas</ion-card-title>
+      <ion-card-title class="ion-text-center">Categorías Destacadas</ion-card-title>
     </ion-card-header>
     <ion-card-content>
       <ion-grid>
         <ion-row>
           <ion-col size="12" size-sm="6" size-md="4" *ngFor="let cat of categorias">
-            <ion-card class="categoria-card" (click)="irACatalogo()">
-              <ion-icon [name]="cat.icono" size="large"></ion-icon>
-              <p>{{ cat.nombre }}</p>
+            <ion-card class="categoria-card ion-text-center" (click)="irACatalogo()">
+              <ion-icon [name]="cat.icono" size="large" color="primary"></ion-icon>
+              <p><strong>{{ cat.nombre }}</strong></p>
             </ion-card>
           </ion-col>
         </ion-row>
@@ -29,6 +41,10 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-button expand="block" (click)="irACatalogo()">Ver Catálogo Completo</ion-button>
+  <ion-button expand="block" shape="round" class="ion-margin-top" (click)="irACatalogo()">
+    VER CATÁLOGO COMPLETO
+  </ion-button>
+
 </ion-content>
+
 <app-footer></app-footer>

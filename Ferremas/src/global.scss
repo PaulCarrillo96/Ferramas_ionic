@@ -35,3 +35,39 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+:root {
+  --ion-color-primary: #2C3E50;      // Azul acero
+  --ion-color-primary-rgb: 44, 62, 80;
+  --ion-color-primary-contrast: #ffffff;
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #263646;
+  --ion-color-primary-tint: #3b4c63;
+
+  --ion-color-secondary: #F1C40F;    // Amarillo industrial
+  --ion-color-secondary-rgb: 241, 196, 15;
+  --ion-color-secondary-contrast: #000000;
+  --ion-color-secondary-contrast-rgb: 0, 0, 0;
+  --ion-color-secondary-shade: #d4ae0d;
+  --ion-color-secondary-tint: #f2c933;
+
+  --ion-color-tertiary: #7F8C8D;     // Gris oscuro
+  --ion-color-tertiary-rgb: 127, 140, 141;
+  --ion-color-tertiary-contrast: #ffffff;
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #707c7d;
+  --ion-color-tertiary-tint: #8d9899;
+}
+
+// Puedes personalizar elementos globales como body, h1, botones...
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  background-color: #f9f9f9;
+  color: #2C3E50;
+}
+
+ion-button {
+  border-radius: 12px;
+  font-weight: bold;
+}
+

@@ -24,6 +24,11 @@
     <ion-note slot="end">${{ total | number: '1.0-0' }}</ion-note>
   </ion-item>
 
+  <ion-item lines="full" *ngIf="tipoCambio">
+  <ion-label><strong>Referencial USD:</strong></ion-label>
+  <ion-note slot="end">{{ totalUSD() | number: '1.2-2' }} USD</ion-note>
+</ion-item>
+
   <ion-button expand="block" color="medium" (click)="limpiar()">Vaciar carrito</ion-button>
 
 <ion-button expand="block" color="success" (click)="irAlPago()" [disabled]="carrito.length === 0">
